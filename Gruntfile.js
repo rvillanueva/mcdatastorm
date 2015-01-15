@@ -56,9 +56,9 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        '<%= yeoman.app %>/{,*/}*.html',
+        '.tmp/styles/{,*/}*.css',
+        '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -76,12 +76,12 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
+            connect.static('.tmp'),
+            connect().use(
+              '/bower_components',
+              connect.static('./bower_components')
+            ),
+            connect.static(appConfig.app)
             ];
           }
         }
@@ -91,13 +91,13 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
-              connect.static('test'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect.static(appConfig.app)
+            connect.static('.tmp'),
+            connect.static('test'),
+            connect().use(
+              '/bower_components',
+              connect.static('./bower_components')
+            ),
+            connect.static(appConfig.app)
             ];
           }
         }
@@ -118,8 +118,8 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
-          'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
+        'Gruntfile.js',
+        '<%= yeoman.app %>/scripts/{,*/}*.js'
         ]
       },
       test: {
@@ -136,9 +136,9 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmp',
-            '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
+          '.tmp',
+          '<%= yeoman.dist %>/{,*/}*',
+          '!<%= yeoman.dist %>/.git{,*/}*'
           ]
         }]
       },
@@ -172,10 +172,10 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= yeoman.dist %>/scripts/{,*/}*.js',
-          '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
+        '<%= yeoman.dist %>/scripts/{,*/}*.js',
+        '<%= yeoman.dist %>/styles/{,*/}*.css',
+        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+        '<%= yeoman.dist %>/styles/fonts/*'
         ]
       }
     },
@@ -303,12 +303,12 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>',
           src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'fonts/{,*/}*.*'
+          '*.{ico,png,txt}',
+          '.htaccess',
+          '*.html',
+          'views/{,*/}*.html',
+          'images/{,*/}*.{webp}',
+          'fonts/{,*/}*.*'
           ]
         }, {
           expand: true,
@@ -333,15 +333,15 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+      'copy:styles'
       ],
       test: [
-        'copy:styles'
+      'copy:styles'
       ],
       dist: [
-        'copy:styles',
-        'imagemin',
-        'svgmin'
+      'copy:styles',
+      'imagemin',
+      'svgmin'
       ]
     },
 
@@ -367,23 +367,23 @@ module.exports = function (grunt) {
       'autoprefixer',
       'connect:livereload',
       'watch'
-    ]);
-  });
+      ]);
+    });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
+    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+      grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+      grunt.task.run(['serve:' + target]);
+    });
 
-  grunt.registerTask('test', [
+    grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
     'karma'
-  ]);
+    ]);
 
-  grunt.registerTask('build', [
+    grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -398,11 +398,11 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
-  ]);
+    ]);
 
-  grunt.registerTask('default', [
+    grunt.registerTask('default', [
     'newer:jshint',
     'test',
     'build'
-  ]);
-};
+    ]);
+  };
