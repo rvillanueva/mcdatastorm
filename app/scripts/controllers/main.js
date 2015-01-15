@@ -9,12 +9,12 @@
  */
 angular.module('mcdatastormApp')
   .controller('MainCtrl', function ($scope, yelpAPIFactory) {
-    $scope.location = 'White Plains';
+    $scope.location = 'Chicago';
     $scope.businesses = [];
     $scope.comparedBusinesses = [];
 
     $scope.chartConfig = {
-      title: 'Products',
+      title: 'Store Comparison',
       tooltips: true,
       labels: false,
       mouseover: function() {},
@@ -28,7 +28,7 @@ angular.module('mcdatastormApp')
     };
 
     $scope.chartData = {
-      series: ['Store Rating', 'Local Average', 'CSO'],
+      series: ['Store Rating', 'Local Average', 'Difference'],
       data: []
     };
 
@@ -39,6 +39,9 @@ angular.module('mcdatastormApp')
         console.log($scope.businesses)
       });
     }
+
+    $scope.comparedNum = 1;
+
     $scope.compare = function(target){
       console.log(target.location)
       var coordinates = target.location.coordinate;
@@ -53,12 +56,14 @@ angular.module('mcdatastormApp')
         var avgRating = totalRating/$scope.comparisons.length;
         console.log(avgRating);
         var pushed = {
-          x: target.location.city,
+          x: $scope.comparedNum + '. ' + target.location.city,
           // Normalize Yelp score
-          y: [target.rating, avgRating, Math.floor(400*Math.random())/100],
+          y: [target.rating, avgRating, Math.floor((target.rating-avgRating)*1000)/1000]
         }
 
+
         $scope.chartData.data.push(pushed);
+        $scope.comparedNum ++;
         console.log($scope.chartData);
       });
 
