@@ -21,7 +21,7 @@ angular.module('mcdatastormApp')
     }
 
     var consumerSecret = 'KJHbaDr-KjZ1FiX6DFqPiE4jNZI'; //Consumer Secret
-    var tokenSecret = 'GaTyTLFt7LVbHmjDjQkvLujy2MI'; //Token Secret
+    var tokenSecret = 'ETL5tvoKDP1af1Qq69aTyQoX1Xw'; //Token Secret
 
     // Public API here
     return {
@@ -33,7 +33,7 @@ angular.module('mcdatastormApp')
           location: location,
           term: name,
           oauth_consumer_key: 'GcB4SngYwGokoEd4vofytQ', //Consumer Key
-          oauth_token: 'LOtGHpo-ADbSyql26pdxayChpq7yuIze', //Token
+          oauth_token: 'YwXLs781Y8DM_4oPPF9AZAarq-S6qKsk', //Token
           oauth_signature_method: "HMAC-SHA1",
           oauth_timestamp: new Date().getTime(),
           oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
